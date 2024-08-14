@@ -22,7 +22,7 @@ public class GenerateController : ControllerBase
 
         if (Url.ToLower() == "${phishingurl}")
         {
-            Url = "https://imgur.com/a/QqwQWnW";
+            Url = 'https://www.sharesbyte.com";
             isValid = true;
         }
 
