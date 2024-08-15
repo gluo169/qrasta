@@ -9,6 +9,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  id-token: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -56,7 +59,6 @@ jobs:
           auth-type: SERVICE_PRINCIPAL
           enable-AzPSSession: true
 
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -66,4 +68,3 @@ jobs:
           publish-profile: 'QRCode - Web Deploy'
           publish-url: 'qrcode-d4ddh5fqdabfcuhq.scm.australiasoutheast-01.azurewebsites.net:443'
           package: .
-
