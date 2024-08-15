@@ -66,5 +66,4 @@ jobs:
           app-name: 'qrcode-d4ddh5fqdabfcuhq'
           slot-name: 'Production'
           publish-profile: 'QRCode - Web Deploy'
-          publish-url: 'qrcode-d4ddh5fqdabfcuhq.scm.australiasoutheast-01.azurewebsites.net:443'
           package: .
