@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'qrasta2'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_79B64AE0F1C0430D9351B7DFA9E3C142 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB12A5C1F41C4F1C86E131225ED59170 }}
           package: .
