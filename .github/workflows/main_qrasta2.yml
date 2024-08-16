@@ -27,10 +27,10 @@ jobs:
 
       - name: Generate QR code
         run: |
-          dotnet new console -o QrCodeGenerator
-          cd QrCodeGenerator
           dotnet add package QRCoder
-          dotnet run -c Release
+          dotnet new class lib -o QrCodeGenerator
+          cd QRCodeGenerator
+          dotnet compile -c Release
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
