@@ -60,9 +60,51 @@ jobs:
           enable-AzPSSession: true
 
       - name: Deploy to Azure Web App
+
         id: deploy-to-webapp
+
         uses: azure/webapps-deploy@v2
+
         with:
+
           app-name: 'qrcode-d4ddh5fqdabfcuhq.australiasoutheast-01.azurewebsites.net'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
+          publish-profile: |
+
+            <publishData>
+
+              <publishProfile 
+
+                profileName="QRCode - Web Deploy" 
+
+                publishMethod="MSDeploy" 
+
+                publishUrl="qrcode-d4ddh5fqdabfcuhq.scm.australiasoutheast-01.azurewebsites.net:443" 
+
+                msdeploySite="QRCode" 
+
+                userName="$QRCode" 
+
+                userPWD="1eRFTJY5uxhn7tZdABwdncdZXlEwwAsxWz80ydZsTNo8dgDnKX259hXokg0e" 
+
+                destinationAppUrl="https://qrcode-d4ddh5fqdabfcuhq.australiasoutheast-01.azurewebsites.net" 
+
+                SQLServerDBConnectionString="" 
+
+                mySQLDBConnectionString="" 
+
+                hostingProviderForumLink="" 
+
+                controlPanelLink="https://portal.azure.com" 
+
+                webSystem="WebSites">
+
+                <databases />
+
+              </publishProfile>
+
+            </publishData>
+
           package: .
+
+          slot-name: production
