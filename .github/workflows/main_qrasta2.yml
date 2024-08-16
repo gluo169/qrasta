@@ -25,6 +25,13 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
+      - name: Generate QR code
+        run: |
+          dotnet new console -o QrCodeGenerator
+          cd QrCodeGenerator
+          dotnet add package QRCoder
+          dotnet run -c Release
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
@@ -36,6 +43,12 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+
+      - name: Upload QR code artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: qr-code
+          path: ./QrCodeGenerator/qr_code.png
 
   deploy:
     runs-on: windows-latest
@@ -49,6 +62,11 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: .net-app
+
+      - name: Download QR code artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: qr-code
 
       - name: Azure Login
         uses: azure/login@v1
