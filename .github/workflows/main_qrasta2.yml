@@ -30,7 +30,8 @@ jobs:
          dotnet new console -o QrCodeGenerator
          cd QrCodeGenerator
          dotnet add package QRCoder
-         dotnet build 
+         dotnet remove AssemblyInfo.cs
+         dotnet build --configuration Release
         
       - name: Build with dotnet
         run: dotnet build --configuration Release
