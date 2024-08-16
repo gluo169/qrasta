@@ -64,6 +64,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'qrcode-d4ddh5fqdabfcuhq.australiasoutheast-01.azurewebsites.net'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
