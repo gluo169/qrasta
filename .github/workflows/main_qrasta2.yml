@@ -31,6 +31,7 @@ jobs:
          cd QrCodeGenerator
          dotnet add package QRCoder
          dotnet remove AssemblyInfo.cs
+         rm QrCodeGenerator/Properties/AssemblyInfo.cs
          dotnet remove obj
          dotnet clean
          dotnet build --configuration Release
