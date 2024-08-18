@@ -32,6 +32,7 @@ jobs:
          dotnet add package QRCoder
          dotnet remove AssemblyInfo.cs
          dotnet remove obj
+         dotnet clean
          dotnet build --configuration Release
         
       - name: Build with dotnet
